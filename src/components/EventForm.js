@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import { CREATE_EVENT, DELETE_ALL_EVENTS } from '../actions';
+import AppContext from '../contexts/AppContext';
 
-const EventForm = ({ state, dispatch }) => {
+const EventForm = () => {
+  const { state, dispatch } = useContext(AppContext);
   const [title, setTitle] = useState('');
   const [body, setBody] = useState('');
 
@@ -17,7 +19,7 @@ const EventForm = ({ state, dispatch }) => {
     setBody('');
   };
   const deleteAllEvents = e => {
-    e.EventFormpreventDefault();
+    e.preventDefault();
     const result = window.confirm('Do you delete all events seriously?');
     if (result) dispatch({ type: DELETE_ALL_EVENTS });
   };
