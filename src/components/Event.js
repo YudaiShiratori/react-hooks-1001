@@ -9,7 +9,6 @@ const Event = ({ event }) => {
   const id = event.id;
   const handleClickDeleteButton = () => {
     const result = window.confirm(`Do you delete event id=${id}?`);
-    // const DELETE_EVENT = 'DELETE_EVENT';
     if (result) {
       dispatch({ type: DELETE_EVENT, id });
       dispatch({
